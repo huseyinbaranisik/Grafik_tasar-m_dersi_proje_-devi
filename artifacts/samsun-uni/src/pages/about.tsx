@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout";
 import { PageHeader } from "@/components/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLeadership } from "@/hooks/use-university-data";
-import { Target, Lightbulb, Compass, Award } from "lucide-react";
+import { Target, Lightbulb, Compass, Award, Users } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function About() {

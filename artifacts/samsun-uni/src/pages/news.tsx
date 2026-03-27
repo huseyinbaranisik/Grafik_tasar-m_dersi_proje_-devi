@@ -56,11 +56,11 @@ export default function News() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
                 >
-                  <Card className="h-full overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white flex flex-col group rounded-2xl">
+                  <Card className="h-full overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 bg-card flex flex-col group rounded-2xl">
                     <div className="relative h-56 overflow-hidden">
                       <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors z-10" />
                       <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-sm text-primary text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
+                      <div className="absolute top-4 left-4 z-20 bg-accent text-accent-foreground text-xs font-bold px-4 py-1.5 rounded-full">
                         {item.category}
                       </div>
                     </div>

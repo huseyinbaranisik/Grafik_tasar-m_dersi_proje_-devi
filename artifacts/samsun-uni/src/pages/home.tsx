@@ -1,28 +1,29 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
-import { ArrowRight, BookOpen, Calendar, GraduationCap, Users, Library, Activity, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight, BookOpen, Calendar, GraduationCap, Users,
+  Library, Activity, ArrowUpRight, CheckCircle2, FlaskConical, Globe
+} from "lucide-react";
 import { useNews, useEvents } from "@/hooks/use-university-data";
 import { Skeleton } from "@/components/ui/skeleton";
 
-function QuickLinkCard({ icon: Icon, title, href, delay }: { icon: any, title: string, href: string, delay: number }) {
+function QuickLinkCard({ icon: Icon, title, href, delay }: { icon: any; title: string; href: string; delay: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }}
     >
       <Link href={href} className="group block h-full">
-        <Card className="h-full border-0 shadow-lg shadow-black/5 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 bg-white overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500" />
-          <CardContent className="p-8 flex flex-col items-center text-center relative z-10">
-            <div className="w-16 h-16 rounded-2xl bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-              <Icon className="w-8 h-8" />
+        <Card className="h-full border border-border bg-card hover:border-primary/40 hover:shadow-lg hover:shadow-black/20 transition-all duration-300 hover:-translate-y-0.5">
+          <CardContent className="p-8 flex flex-col items-center text-center">
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <Icon className="w-7 h-7" />
             </div>
-            <h3 className="font-display font-bold text-lg text-foreground group-hover:text-primary transition-colors">{title}</h3>
+            <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors">{title}</h3>
           </CardContent>
         </Card>
       </Link>
@@ -36,246 +37,260 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Hero */}
+      <section className="relative h-[88vh] min-h-[620px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={`${import.meta.env.BASE_URL}images/hero-bg.png`} 
-            alt="Samsun University Campus" 
+          <img
+            src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
+            alt="Samsun Üniversitesi Kampüsü"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/75 to-background/20" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl"
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent font-medium text-sm mb-8 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 border border-accent/25 text-accent text-sm font-medium mb-8">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
               </span>
-              2024-2025 Akademik Yılı Başvuruları Başladı
+              2024–2025 Akademik Yılı Başvuruları Açık
             </div>
-            
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6 drop-shadow-lg">
-              Geleceği Birlikte <br/>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-[1.05] mb-6">
+              Geleceği Birlikte<br />
               <span className="text-accent">Şekillendiriyoruz</span>
             </h1>
-            
-            <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl drop-shadow">
+
+            <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-xl">
               Bilimin ışığında, yenilikçi ve araştırmacı vizyonumuzla uluslararası standartlarda eğitim veriyor, geleceğin liderlerini yetiştiriyoruz.
             </p>
-            
+
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-8 h-14 text-base font-semibold shadow-xl shadow-accent/20">
-                Aday Öğrenciler
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white rounded-full px-8 h-14 text-base font-semibold backdrop-blur-sm">
+              <Link
+                href="/programs"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20"
+              >
+                Aday Öğrenciler <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/programs"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-card border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
+              >
                 Akademik Programlar
-              </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Quick Links / Features Overlapping Hero */}
-      <section className="relative z-20 -mt-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          <QuickLinkCard icon={GraduationCap} title="Öğrenci Portalı" href="/programs" delay={0.1} />
-          <QuickLinkCard icon={BookOpen} title="Ders Programları" href="/programs" delay={0.2} />
-          <QuickLinkCard icon={Library} title="Kütüphane" href="#" delay={0.3} />
-          <QuickLinkCard icon={Activity} title="Kampüs Yaşamı" href="/about" delay={0.4} />
+      {/* Quick Links */}
+      <section className="relative z-20 -mt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <QuickLinkCard icon={GraduationCap} title="Öğrenci Portalı" href="/student-life" delay={0.05} />
+          <QuickLinkCard icon={BookOpen} title="Programlar" href="/programs" delay={0.1} />
+          <QuickLinkCard icon={Library} title="Kütüphane" href="/library" delay={0.15} />
+          <QuickLinkCard icon={FlaskConical} title="Araştırma" href="/research" delay={0.2} />
+          <QuickLinkCard icon={Globe} title="Uluslararası" href="/international" delay={0.25} />
+          <QuickLinkCard icon={Activity} title="Kampüs" href="/student-life" delay={0.3} />
         </div>
       </section>
 
-      {/* About Section Teaser */}
-      <section className="py-24 bg-background">
+      {/* About Teaser */}
+      <section className="py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-accent font-bold tracking-wider uppercase text-sm mb-3">Hakkımızda</h2>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6 leading-tight">
-                20 Yıllık Akademik Mükemmellik Geleneği
-              </h3>
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+              <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-4">Hakkımızda</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 leading-tight">
+                20 Yıllık Akademik<br />Mükemmellik Geleneği
+              </h2>
+              <p className="text-muted-foreground text-base mb-8 leading-relaxed">
                 Modern kampüsümüz, güçlü akademik kadromuz ve yenilikçi eğitim anlayışımızla öğrencilerimizi sadece kariyerlerine değil, hayata hazırlıyoruz.
               </p>
               <ul className="space-y-4 mb-10">
                 {[
-                  "Uluslararası Akredite Programlar", 
-                  "Güçlü Sanayi İşbirlikleri", 
-                  "Modern Araştırma Laboratuvarları"
+                  "Uluslararası Akredite Programlar",
+                  "Güçlü Sanayi İşbirlikleri",
+                  "Modern Araştırma Laboratuvarları",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                    <CheckCircle2 className="text-accent w-6 h-6 shrink-0" />
+                  <li key={i} className="flex items-center gap-3 text-sm font-medium text-foreground">
+                    <CheckCircle2 className="text-accent w-5 h-5 shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <Link href="/about">
-                <Button className="rounded-full px-8 bg-primary hover:bg-primary/90 text-white flex items-center gap-2">
-                  Daha Fazla Bilgi <ArrowRight className="w-4 h-4" />
-                </Button>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent transition-colors"
+              >
+                Daha Fazla Bilgi <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
-            
+
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src={`${import.meta.env.BASE_URL}images/campus-life.png`} 
-                  alt="Kampüs Yaşamı" 
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-2xl shadow-black/30">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/campus-life.png`}
+                  alt="Kampüs Yaşamı"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-xl max-w-xs border border-border/50">
-                <div className="text-4xl font-display font-bold text-primary mb-2">10K+</div>
-                <div className="text-muted-foreground font-medium">Başarılı Öğrenci ve Mezun Ağı</div>
+              <div className="absolute -bottom-6 -left-6 bg-card border border-border p-6 rounded-2xl shadow-xl">
+                <div className="text-3xl font-display font-bold text-accent mb-1">10K+</div>
+                <div className="text-sm text-muted-foreground font-medium">Başarılı Öğrenci ve Mezun</div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* News & Events Section */}
-      <section className="py-24 bg-secondary">
+      {/* News & Events */}
+      <section className="py-28 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
             <div>
-              <h2 className="text-accent font-bold tracking-wider uppercase text-sm mb-3">Güncel</h2>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-primary">Haberler ve Etkinlikler</h3>
+              <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Güncel</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">Haberler ve Etkinlikler</h2>
             </div>
-            <Link href="/news">
-              <Button variant="outline" className="rounded-full border-primary text-primary hover:bg-primary hover:text-white transition-all">
-                Tümünü Gör <ArrowUpRight className="w-4 h-4 ml-2" />
-              </Button>
+            <Link
+              href="/news"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-4 py-2 hover:bg-card"
+            >
+              Tümünü Gör <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* News Cards - Takes 2 cols on LG */}
             <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-              {newsLoading ? (
-                Array(2).fill(0).map((_, i) => (
-                  <Skeleton key={i} className="h-[400px] w-full rounded-2xl" />
-                ))
-              ) : (
-                news?.slice(0, 2).map((item, idx) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                  >
-                    <Link href={`/news/${item.id}`} className="group block h-full">
-                      <Card className="h-full overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 bg-white flex flex-col rounded-2xl">
-                        <div className="relative h-48 overflow-hidden">
-                          <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
-                          <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                          <div className="absolute top-4 left-4 z-20 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full">
-                            {item.category}
+              {newsLoading
+                ? Array(2)
+                    .fill(0)
+                    .map((_, i) => <Skeleton key={i} className="h-[380px] w-full rounded-2xl" />)
+                : news?.slice(0, 2).map((item, idx) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                    >
+                      <Link href={`/news/${item.id}`} className="group block h-full">
+                        <Card className="h-full overflow-hidden border border-border bg-card hover:border-primary/40 transition-all duration-300 rounded-2xl">
+                          <div className="relative h-48 overflow-hidden">
+                            <img
+                              src={item.imageUrl}
+                              alt={item.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute top-3 left-3 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full">
+                              {item.category}
+                            </div>
                           </div>
-                        </div>
-                        <CardContent className="p-6 flex flex-col flex-1">
-                          <div className="text-sm text-muted-foreground mb-3 font-medium">{item.date}</div>
-                          <h4 className="font-display font-bold text-xl text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors">
-                            {item.title}
-                          </h4>
-                          <p className="text-muted-foreground line-clamp-2 mb-6 mt-auto">
-                            {item.excerpt}
-                          </p>
-                          <div className="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                            Devamını Oku <ArrowRight className="w-4 h-4" />
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </motion.div>
-                ))
-              )}
+                          <CardContent className="p-6 flex flex-col flex-1">
+                            <div className="text-xs text-muted-foreground mb-3 font-medium">{item.date}</div>
+                            <h4 className="font-display font-semibold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                              {item.title}
+                            </h4>
+                            <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{item.excerpt}</p>
+                            <div className="text-primary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all mt-auto">
+                              Devamını Oku <ArrowRight className="w-4 h-4" />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    </motion.div>
+                  ))}
             </div>
 
-            {/* Events Sidebar */}
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-border/50">
-              <h4 className="font-display font-bold text-2xl text-primary mb-6 flex items-center gap-3">
-                <Calendar className="text-accent" /> Yaklaşan Etkinlikler
+            {/* Events */}
+            <div className="bg-card border border-border rounded-2xl p-8">
+              <h4 className="font-display font-semibold text-xl text-foreground mb-6 flex items-center gap-2.5">
+                <Calendar className="text-accent w-5 h-5" /> Yaklaşan Etkinlikler
               </h4>
-              
               <div className="space-y-6">
-                {eventsLoading ? (
-                  Array(3).fill(0).map((_, i) => (
-                    <div key={i} className="flex gap-4">
-                      <Skeleton className="w-16 h-16 rounded-xl shrink-0" />
-                      <div className="space-y-2 flex-1"><Skeleton className="h-4 w-full" /><Skeleton className="h-3 w-2/3" /></div>
-                    </div>
-                  ))
-                ) : (
-                  events?.map((event) => (
-                    <div key={event.id} className="flex gap-5 group cursor-pointer">
-                      <div className="w-16 h-16 rounded-xl bg-secondary flex flex-col items-center justify-center shrink-0 border border-border group-hover:bg-primary group-hover:border-primary transition-colors">
-                        <span className="text-xs font-bold text-muted-foreground group-hover:text-primary-foreground/80">{event.date.split(' ')[1]}</span>
-                        <span className="text-xl font-display font-bold text-primary group-hover:text-white">{event.date.split(' ')[0]}</span>
+                {eventsLoading
+                  ? Array(3)
+                      .fill(0)
+                      .map((_, i) => (
+                        <div key={i} className="flex gap-4">
+                          <Skeleton className="w-14 h-14 rounded-xl shrink-0" />
+                          <div className="space-y-2 flex-1">
+                            <Skeleton className="h-4 w-full" />
+                            <Skeleton className="h-3 w-2/3" />
+                          </div>
+                        </div>
+                      ))
+                  : events?.map((event) => (
+                      <div key={event.id} className="flex gap-4 group cursor-pointer">
+                        <div className="w-14 h-14 rounded-xl bg-secondary border border-border flex flex-col items-center justify-center shrink-0 group-hover:bg-primary group-hover:border-primary transition-colors">
+                          <span className="text-[10px] font-semibold text-muted-foreground group-hover:text-white/80 uppercase">
+                            {event.date.split(" ")[1]}
+                          </span>
+                          <span className="text-lg font-display font-bold text-foreground group-hover:text-white">
+                            {event.date.split(" ")[0]}
+                          </span>
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
+                            {event.title}
+                          </h5>
+                          <p className="text-xs text-muted-foreground">
+                            {event.time} • {event.location}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h5 className="font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
-                          {event.title}
-                        </h5>
-                        <p className="text-sm text-muted-foreground flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                          {event.time} • {event.location}
-                        </p>
-                      </div>
-                    </div>
-                  ))
-                )}
+                    ))}
               </div>
-              
-              <Button variant="ghost" className="w-full mt-8 rounded-xl border-dashed border-2 hover:border-primary hover:bg-secondary">
-                Tüm Etkinlikler
-              </Button>
+              <Link
+                href="/announcements"
+                className="mt-8 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-dashed border-border text-sm text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-secondary transition-colors"
+              >
+                Tüm Etkinlikler <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 bg-primary text-white">
+      {/* Stats */}
+      <section className="py-24 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { num: "50+", label: "Akademik Program" },
-              { num: "10K+", label: "Öğrenci" },
+              { num: "10K+", label: "Aktif Öğrenci" },
               { num: "500+", label: "Akademisyen" },
-              { num: "20+", label: "Yıllık Tecrübe" }
+              { num: "20+", label: "Yıllık Tecrübe" },
             ].map((stat, i) => (
-              <div key={i} className="text-center px-4">
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, type: "spring" }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-accent mb-2"
-                >
-                  {stat.num}
-                </motion.div>
-                <div className="text-primary-foreground/80 font-medium md:text-lg">{stat.label}</div>
-              </div>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-8 rounded-2xl border border-border bg-card"
+              >
+                <div className="text-4xl md:text-5xl font-display font-bold text-accent mb-2">{stat.num}</div>
+                <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+              </motion.div>
             ))}
           </div>
         </div>

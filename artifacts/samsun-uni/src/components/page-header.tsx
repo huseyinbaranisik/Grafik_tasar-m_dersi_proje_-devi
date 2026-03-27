@@ -8,13 +8,13 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description, image }: PageHeaderProps) {
   return (
-    <div className="relative overflow-hidden bg-primary py-24 text-white">
+    <div className="relative overflow-hidden bg-secondary border-b border-border py-24">
       {image && (
         <>
           <div className="absolute inset-0 z-0">
             <img src={image} alt={title} className="w-full h-full object-cover opacity-30 mix-blend-overlay" />
           </div>
-          <div className="absolute inset-0 z-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
+          <div className="absolute inset-0 z-0 bg-gradient-to-t from-secondary via-secondary/80 to-transparent" />
         </>
       )}
       
@@ -32,7 +32,7 @@ export function PageHeader({ title, description, image }: PageHeaderProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
+          className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 text-foreground"
         >
           {title}
         </motion.h1>
@@ -41,7 +41,7 @@ export function PageHeader({ title, description, image }: PageHeaderProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/80 leading-relaxed"
+            className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed"
           >
             {description}
           </motion.p>

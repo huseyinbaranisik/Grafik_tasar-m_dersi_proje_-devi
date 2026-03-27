@@ -98,7 +98,7 @@ export default function Contact() {
             <div className="lg:col-span-2">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
                 <Card className="border-0 shadow-2xl shadow-primary/5 rounded-3xl overflow-hidden">
-                  <CardContent className="p-8 md:p-12 bg-white">
+                  <CardContent className="p-8 md:p-12 bg-card">
                     <h3 className="font-display font-bold text-3xl text-primary mb-8">Bize Yazın</h3>
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
