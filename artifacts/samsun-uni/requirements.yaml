@@ -1,0 +1,24 @@
+packages:
+  "framer-motion": "For page transitions and scroll-triggered animations to give a premium feel"
+  "react-hook-form": "For robust contact form handling"
+  "@hookform/resolvers": "Zod validation resolver for the contact form"
+
+images:
+  - path: "artifacts/samsun-uni/public/images/logo.png"
+    description: "A modern, minimalist and premium university emblem logo featuring a stylized geometric shield, navy blue and gold colors, transparent background, institutional feel."
+    aspect_ratio: "1:1"
+  - path: "artifacts/samsun-uni/public/images/hero-bg.png"
+    description: "A stunning architectural photography shot of a modern university campus building at golden hour, with warm sunlight reflecting off glass windows, clean lines, and deep navy blue sky, premium academic atmosphere."
+    aspect_ratio: "16:9"
+  - path: "artifacts/samsun-uni/public/images/campus-life.png"
+    description: "Diverse group of university students studying and walking together in a modern, bright, clean campus courtyard, lush green trees, premium professional academic photography."
+    aspect_ratio: "16:9"
+  - path: "artifacts/samsun-uni/public/images/rector.png"
+    description: "Professional highly polished portrait of a university rector in a modern academic office, wearing a navy blue suit, warm institutional lighting."
+    aspect_ratio: "1:1"
+
+notes:
+  - Mock data is used for all entities as this is a frontend-only prototype.
+  - All content is written in Turkish per the user's request.
+  - Wouter is used for routing.
+  - Framer motion is used for premium entry animations.
