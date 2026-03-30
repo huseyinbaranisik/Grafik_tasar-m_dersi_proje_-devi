@@ -2,6 +2,8 @@ import { Layout } from "@/components/layout";
 import { PageHeader } from "@/components/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Lightbulb, Compass, Award, Users, Code2 } from "lucide-react";
+import { Link } from "wouter";
+import { Mail, ExternalLink } from "lucide-react";
 
 const values = [
   { icon: Target, title: "Mükemmellik", desc: "Eğitim ve araştırmada en yüksek standartları hedefliyoruz." },
@@ -12,10 +14,33 @@ const values = [
   { icon: Code2, title: "Pratik Odak", desc: "Teorik bilgiyi gerçek dünya projelerine dönüştürerek öğretiyoruz." },
 ];
 
+const BASE = "https://i1.rgstatic.net/ii/profile.image/";
+
 const management = [
-  { name: "Prof. Dr. Mehmet Kaya", role: "Bölüm Başkanı", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" },
-  { name: "Doç. Dr. Ali Yıldız", role: "Bölüm Başkan Yardımcısı", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
-  { name: "Dr. Öğr. Üyesi Selin Kurt", role: "ERASMUS Koordinatörü", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" },
+  {
+    name: "Doç. Dr. Muammer Türkoğlu",
+    role: "Bölüm Başkanı",
+    specialization: "Görüntü İşleme, Yapay Zeka, Makine Öğrenmesi, Derin Öğrenme",
+    email: "muammer.turkoglu@samsun.edu.tr",
+    profileUrl: "https://www.researchgate.net/profile/Muammer-Tuerkoglu",
+    img: BASE + "790201374875651-1565410097929_Q256/Muammer-Tuerkoglu.jpg",
+  },
+  {
+    name: "Dr. Öğr. Üyesi Emel Soylu",
+    role: "Bölüm Başkan Yardımcısı",
+    specialization: "Yapay Zeka, Robotik, Gömülü Sistemler, Derin Öğrenme, Batarya İzleme",
+    email: "emel.soylu@samsun.edu.tr",
+    profileUrl: "https://profil.samsun.edu.tr/Academic/About/emel.soylu",
+    img: "https://ui-avatars.com/api/?name=Emel+Soylu&background=166534&color=fff&size=400&bold=true&font-size=0.4",
+  },
+  {
+    name: "Dr. Öğr. Üyesi Özgür Tonkal",
+    role: "Bölüm Başkan Yardımcısı / Erasmus Koordinatörü",
+    specialization: "Bilgisayar Ağları, Yapay Zeka, Bilgi Güvenliği, Kriptoloji",
+    email: "ozgur.tonkal@samsun.edu.tr",
+    profileUrl: "https://profil.samsun.edu.tr/Academic/About/ozgur.tonkal",
+    img: "https://ui-avatars.com/api/?name=Özgür+Tonkal&background=166534&color=fff&size=400&bold=true&font-size=0.4",
+  },
 ];
 
 export default function About() {
@@ -33,13 +58,13 @@ export default function About() {
             <div>
               <h2 className="font-display text-3xl font-bold text-foreground mb-6">Tarihçemiz</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>Yazılım Mühendisliği Bölümü, 2010 yılında Mühendislik Fakültesi bünyesinde kurulmuştur. İlk mezunlarını 2014 yılında veren bölümümüz, bugün 850'yi aşkın aktif öğrencisi ve 15 öğretim üyesiyle bölgenin önde gelen yazılım eğitim merkezlerinden biri haline gelmiştir.</p>
-                <p>Kuruluşundan bu yana yapay zeka, siber güvenlik ve bulut bilişim alanlarında öncü araştırmalar yürüten bölümümüz, 40'tan fazla TÜBİTAK destekli projeye ev sahipliği yapmıştır.</p>
-                <p>Mezunlarımız başta İstanbul, Ankara ve uluslararası teknoloji merkezleri olmak üzere dünyanın dört bir yanındaki önde gelen şirketlerde görev almaktadır.</p>
+                <p>Yazılım Mühendisliği Bölümü, Mühendislik ve Doğa Bilimleri Fakültesi bünyesinde kurulmuş olup Samsun Üniversitesi'nin öncü bölümlerinden biridir. Yapay zeka, siber güvenlik, bulut bilişim ve kuantum hesaplama gibi ileri teknoloji alanlarında araştırmalar yürütmektedir.</p>
+                <p>Bölümümüz, TÜBİTAK destekli çok sayıda araştırma projesine ev sahipliği yapmış; öğrencileri ve akademisyenleriyle teknoloji sektörüne önemli katkılar sağlamıştır.</p>
+                <p>Mezunlarımız başta İstanbul ve Ankara olmak üzere Türkiye'nin önde gelen teknoloji şirketlerinde ve uluslararası kuruluşlarda kariyer yapmaktadır.</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {[{ v: "2010", l: "Kuruluş Yılı" }, { v: "850+", l: "Öğrenci" }, { v: "500+", l: "Mezun" }, { v: "40+", l: "Proje" }].map(({ v, l }) => (
+              {[{ v: "9", l: "Öğretim Üyesi" }, { v: "6", l: "Araştırma Görevlisi" }, { v: "40+", l: "TÜBİTAK Projesi" }, { v: "%92", l: "İstihdam Oranı" }].map(({ v, l }) => (
                 <div key={l} className="bg-card border border-border rounded-2xl p-7 text-center">
                   <div className="font-display text-4xl font-bold text-accent mb-1">{v}</div>
                   <div className="text-sm text-muted-foreground">{l}</div>
@@ -81,17 +106,46 @@ export default function About() {
           </div>
 
           <div id="management">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-10 text-center">Yönetim</h2>
+            <h2 className="font-display text-3xl font-bold text-foreground mb-3 text-center">Yönetim Kadrosu</h2>
+            <p className="text-center text-muted-foreground mb-10">Bölümümüzün akademik yöneticileri</p>
             <div className="grid sm:grid-cols-3 gap-6">
               {management.map((m) => (
-                <div key={m.name} className="bg-card border border-border rounded-2xl overflow-hidden text-center">
-                  <img src={m.img} alt={m.name} className="w-full h-48 object-cover" />
+                <div key={m.name} className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all group">
+                  <div className="h-56 overflow-hidden bg-secondary">
+                    <img
+                      src={m.img}
+                      alt={m.name}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      
+                      
+                      onError={(e) => {
+                        const el = e.target as HTMLImageElement;
+                        el.onerror = null;
+                        const nameParts = m.name.replace(/Prof\. Dr\.|Doç\. Dr\.|Dr\. Öğr\. Üyesi/g, "").trim();
+                        el.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(nameParts)}&background=166534&color=fff&size=400&bold=true&font-size=0.4`;
+                      }}
+                    />
+                  </div>
                   <div className="p-6">
-                    <h3 className="font-semibold text-foreground mb-1">{m.name}</h3>
-                    <p className="text-sm text-primary">{m.role}</p>
+                    <h3 className="font-semibold text-foreground mb-1 text-sm leading-snug">{m.name}</h3>
+                    <p className="text-xs text-primary font-medium mb-3">{m.role}</p>
+                    <p className="text-xs text-muted-foreground mb-4 leading-relaxed">{m.specialization}</p>
+                    <div className="flex flex-col gap-2 text-xs">
+                      <a href={`mailto:${m.email}`} className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
+                        <Mail className="w-3 h-3 text-primary shrink-0" />{m.email}
+                      </a>
+                      <a href={m.profileUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-primary hover:underline">
+                        <ExternalLink className="w-3 h-3 shrink-0" />Akademik Profil
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Link href="/faculty" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors text-sm">
+                Tüm Akademik Kadroyu Gör
+              </Link>
             </div>
           </div>
         </div>
