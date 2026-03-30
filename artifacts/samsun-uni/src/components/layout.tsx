@@ -171,6 +171,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 src={`${import.meta.env.BASE_URL}images/samsun-logo.png`}
                 alt="Samsun Üniversitesi Logo"
                 className="w-full h-full object-contain p-0.5"
+                style={{ filter: "hue-rotate(120deg) saturate(1.5)" }}
               />
             </div>
             <div>
@@ -302,7 +303,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0">
-                  <img src={`${import.meta.env.BASE_URL}images/samsun-logo.png`} alt="Logo" className="w-full h-full object-contain p-0.5" />
+                  <img src={`${import.meta.env.BASE_URL}images/samsun-logo.png`} alt="Logo" className="w-full h-full object-contain p-0.5" style={{ filter: "hue-rotate(120deg) saturate(1.5)" }} />
                 </div>
                 <div>
                   <div className="font-display font-bold text-sm text-foreground">Samsun Üniversitesi</div>
