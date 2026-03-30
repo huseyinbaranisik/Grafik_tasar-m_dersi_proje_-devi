@@ -5,22 +5,22 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 import Home from "@/pages/home";
 import About from "@/pages/about";
-import Programs from "@/pages/programs";
+import Courses from "@/pages/courses";
 import News from "@/pages/news";
 import Contact from "@/pages/contact";
 import Research from "@/pages/research";
-import International from "@/pages/international";
-import StudentLife from "@/pages/student-life";
-import Faculties from "@/pages/faculties";
-import Career from "@/pages/career";
+import Faculty from "@/pages/faculty-members";
+import Labs from "@/pages/labs";
+import Internship from "@/pages/internship";
+import Alumni from "@/pages/alumni";
 import Announcements from "@/pages/announcements";
-import Library from "@/pages/library";
+import Admission from "@/pages/admission";
+import StudentLife from "@/pages/student-life";
+import Career from "@/pages/career";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: { retry: false, refetchOnWindowFocus: false },
-  },
+  defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } },
 });
 
 function Router() {
@@ -28,17 +28,19 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/programs" component={Programs} />
+      <Route path="/courses" component={Courses} />
       <Route path="/news" component={News} />
       <Route path="/news/:id" component={News} />
       <Route path="/contact" component={Contact} />
       <Route path="/research" component={Research} />
-      <Route path="/international" component={International} />
-      <Route path="/student-life" component={StudentLife} />
-      <Route path="/faculties" component={Faculties} />
-      <Route path="/career" component={Career} />
+      <Route path="/faculty" component={Faculty} />
+      <Route path="/labs" component={Labs} />
+      <Route path="/internship" component={Internship} />
+      <Route path="/alumni" component={Alumni} />
       <Route path="/announcements" component={Announcements} />
-      <Route path="/library" component={Library} />
+      <Route path="/admission" component={Admission} />
+      <Route path="/student-life" component={StudentLife} />
+      <Route path="/career" component={Career} />
       <Route component={NotFound} />
     </Switch>
   );

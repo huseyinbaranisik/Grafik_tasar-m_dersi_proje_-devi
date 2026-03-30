@@ -4,6 +4,41 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Samsun Üniversitesi Yazılım Mühendisliği Sitesi
+
+**Artifact:** `artifacts/samsun-uni` — React + Vite web app at path `/`
+
+### Features
+- Dark theme (navy/gold palette), Space Grotesk + Inter fonts
+- Official Samsun University logo (`/public/images/samsun-logo.png`)
+- Dropdown navigation: Bölüm, Akademik, Öğrenci (10+ dropdown items)
+- Social media icons in footer: Twitter/X, LinkedIn, YouTube, Instagram (SVG inline)
+- All buttons functional with proper `<Link href=...>` routing
+
+### Pages (15 total)
+- `/` — Ana Sayfa (Software Engineering focused hero + stats + news)
+- `/about` — Bölüm Hakkında, tarihçe, misyon/vizyon, yönetim
+- `/faculty` — Akademik Kadro (öğretim üyeleri kartları)
+- `/courses` — Ders Programı (dönem filtreli tablo)
+- `/research` — Araştırma projeleri ve yayınlar
+- `/labs` — Laboratuvarlar (4 lab + rezervasyon CTA)
+- `/internship` — Staj Rehberi (adım adım süreç + firmalar)
+- `/alumni` — Mezunlar (kariyer bilgileri)
+- `/admission` — Başvuru ve Kabul (koşullar + FAQ)
+- `/announcements` — Duyurular (kategoriye göre filtreli)
+- `/news` — Haberler
+- `/student-life` — Öğrenci Yaşamı
+- `/career` — Kariyer
+- `/contact` — İletişim
+- `/programs` — Programlar
+
+### Data
+All data is mock/static (no backend API). Hooks in `src/hooks/use-university-data.ts`:
+- `useNews()` — software engineering news
+- `useEvents()` — upcoming events
+- `useCourses()` — 15 courses (1-6. dönem, zorunlu/seçmeli)
+- `useFacultyMembers()` — 6 faculty members with specializations
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
